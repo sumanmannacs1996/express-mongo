@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/user', require('./routes/userRoutes'))
 
 // adding error handaler middleware
 app.use(errorHandaler)
