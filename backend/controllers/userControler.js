@@ -32,7 +32,8 @@ const registerUser = asyncHandaler(async (req, res) => {
     const user = await User.create({
         name,
         email,
-        password: hasedPassword
+        password: hasedPassword,
+        token: genToken(user.id)
     })
 
     if (user) {
@@ -40,7 +41,8 @@ const registerUser = asyncHandaler(async (req, res) => {
         res.json({
             _id: user.id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            token: user.token
         })
     } else {
         res.status(400)
